@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Create Board Button -->
+        <button id="create-board-button" class="btn">Create Board</button>
+
+        <!-- Boards Container -->
+        <div id="boards-container" class="boards-container">
+            <!-- Dynamically populated boards will appear here -->
+        </div>
+
+        <!-- Settings Container (for customizing a board) -->
+        <div id="settings-container" class="hidden">
+            <!-- Settings form content will appear here -->
+        </div>
+    </div>
+
+    <!-- Full Board View -->
+    <div class="full-board-view hidden">
+        <!-- Back Button -->
+        <button id="back-button" class="btn back-button">Back</button>
+
+        <!-- Board Title -->
+        <h1 id="board-title" class="board-title">Board Title</h1>
+
+        <!-- Board Lists/Tasks -->
+        <div id="board-container" class="board-container">
+            <!-- Dynamically populated lists will appear here -->
+        </div>
+    </div>
+
+    <div id="storage-warning" class="storage-warning">
+        Warning: Your boards are stored locally in your browser. This may affect your browser's performance.
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Welcome to Your Dashboard!</h2>
+            <p>Here’s how our features can help you:</p>
+            <ul>
+                <li><strong>Boards:</strong> Organize your tasks and projects in customizable boards.</li>
+                <li><strong>Lists:</strong> Create lists to break down tasks or manage different project stages.</li>
+                <li><strong>Tasks:</strong> Keep track of all the tasks you need to complete for each list.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            const modal = document.querySelector('.modal');
+            modal.style.visibility = 'visible';
+        };
+
+        // Close the modal when the "X" button is clicked
+        document.querySelector('.close-modal').onclick = function() {
+            closeModal();
+        };
+
+        // Close the modal if the user clicks outside the modal content
+        window.onclick = function(event) {
+            const modal = document.querySelector('.modal');
+            if (event.target === modal) {
+            closeModal();
+        }
+    };
+
+        // Close modal function to hide the modal
+            function closeModal() {
+                const modal = document.querySelector('.modal');
+                modal.style.visibility = 'hidden';
+            }
+                
+    </script>
+    
+    <!-- Help Button -->
+    <button id="help-button" class="help-button">Help</button>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close-modal">&times;</span>
+            <h2>Help & FAQ</h2>
+            <p><strong>How to Create a Board:</strong> Click on the "Create Board" button to start a new board.</p>
+            <p><strong>How to Delete a Board:</strong> Click the "Delete" button on the board to remove it.</p>
+            <p><strong>How to Add a Task:</strong> Inside the board, click "Add Task" to create a new task.</p>
+            <p><strong>Storage:</strong> Your boards are stored locally in your browser. They will persist until you clear your browser data.</p>
+        </div>
+    </div>
+ 
+    <!-- Include JavaScript file -->
+    <script src="Integrated.js" defer></script>
+</body>
+</html>

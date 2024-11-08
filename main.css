@@ -1,0 +1,402 @@
+/* Global Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #d5b7e1, #9e78b4); /* Subtle purple gradient */
+    color: #333;
+}
+
+/* Login Container */
+.login-container {
+    width: 320px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Title Styling */
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 32px;
+    margin: 0;
+    color: black;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+/* Input Fields */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ffd700; /* Light yellow outline */
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    background-color: transparent; /* Transparent background */
+    text-align: center;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: black;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: 2px solid #ffd700; /* Light yellow outline */
+    background-color: transparent;
+    color: #ffd700; /* Yellow text */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffd700; /* Yellow background on hover */
+    color: black;
+}
+
+/* Create Account Link */
+.create-account {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.create-account a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple gradient */
+}
+
+#boards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Board Styles */
+.board {
+    width: 180px;
+    height: 120px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative; /* Relative positioning for absolute-positioned delete button */
+    padding: 10px; /* Add padding to prevent content overlap */
+}
+
+.board:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.delete-board-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ff6666;
+    border: none;
+    padding: 5px 8px; /* Smaller padding to fit the corner */
+    border-radius: 8px; /* Small radius to avoid too much stretching */
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 30%;
+}
+
+.delete-board-button:hover {
+    background-color: #ff3333;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Full Board View */
+.full-board-view {
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: #ffffff;
+    position: relative;
+    color: #333;
+}
+
+/* Back Button */
+#back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: #ffd700; /* Yellow */
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    width: 20%;
+}
+
+#back-button:hover {
+    background-color: #d4af37; /* Darker yellow */
+}
+
+/* Add List Button */
+.add-list-button {
+    margin: 20px;
+    padding: 12px 24px;
+    background-color: #ffd700; /* Yellow */
+    color: #333;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-list-button:hover {
+    background-color: #d4af37; /* Darker yellow */
+}
+
+#board-title {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #ffd700; /* Yellow */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* List Container */
+.list-container {
+    width: 250px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.list-container input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.list-container input:focus {
+    border-color: #ffd700; /* Yellow border */
+    outline: none;
+}
+
+/* Add Task Button */
+.add-task-button {
+    padding: 12px 24px;
+    background-color: #6a11cb; /* Purple gradient */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-task-button:hover {
+    background-color: #4b0082; /* Darker purple */
+}
+
+/* Task Container */
+.task-container {
+    padding: 8px;
+    background-color: #fff;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.task-container input {
+    width: 80%;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+.task-container input:focus {
+    outline: none;
+    border-bottom: 2px solid #ffd700; /* Yellow underline */
+}
+
+.task-container button {
+    padding: 6px;
+    background-color: #ff5722;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-container button:hover {
+    background-color: #e64a19;
+}
+
+.board-container {
+    display: flex;
+    gap: 20px; /* Space between each list */
+    align-items: flex-start;
+    padding: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .board {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+    .dashboard-container {
+        padding: 10px;
+    }
+    .list-container {
+        width: 100%;
+    }
+    .full-board-view {
+        padding: 10px;
+    }
+    #back-button {
+        font-size: 16px;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden; /* Hidden by default */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.modal h2 {
+    color: #333;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #ff0000; /* Red on hover */
+}
+
+/* Help Button */
+.help-button {
+    padding: 12px 24px;
+    background-color: #6a11cb; /* Purple gradient */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 400px;
+    gap: 20px;
+    width: 5%;
+}
+
+.help-button:hover {
+    background-color: #4b0082; /* Darker purple */
+}
+
+/* Storage Warning */
+.storage-warning {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffcc00; /* Yellow background for visibility */
+    color: black;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+    z-index: 9999;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
